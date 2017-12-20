@@ -17,19 +17,22 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
-    public Message addMessage(Message newmessage){
+    public Message addMessage(Message newmessage) {
         messageRepository.save(newmessage);
         return newmessage;
     }
-    public Message get(Long id){
+
+    public Message get(Long id) {
         return messageRepository.findOne(id);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         messageRepository.delete(id);
     }
 
-    public void update(Long id,String newmessage){
-        messageRepository.findOne(id).setMessage(newmessage);
+    public void update(Long id, String newmessage) {
+        Message m = messageRepository.findOne(id);
+        m.setMessage(newmessage);
+        messageRepository.save(m);
     }
 }
