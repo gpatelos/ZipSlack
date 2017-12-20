@@ -66,7 +66,7 @@ public class MessageController {
             return new ResponseEntity("Not Found", HttpStatus.NOT_FOUND);
         }
         messageService.update(id, msg);
-        return new ResponseEntity(id, HttpStatus.OK);
+        return new ResponseEntity(existingMessage, HttpStatus.OK);
     }
 
 }
